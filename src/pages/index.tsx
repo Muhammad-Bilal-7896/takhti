@@ -15,6 +15,15 @@ export default function Home() {
   const [value, setValue] = React.useState<string | null>(options[0]);
   const [inputValue, setInputValue] = React.useState('');
 
+  const optionsAge: any = ['1','2'];
+
+  const [valueAge, setValueAge] = React.useState<string | null>(optionsAge[0]);
+  const [inputValueAge, setInputValueAge] = React.useState('1');
+
+  for (let i = 0; i < 50; i++) {
+    optionsAge.push(`${i + 1}`);
+  }
+
   return (
     <>
       <Head>
@@ -76,16 +85,16 @@ export default function Home() {
                   <label htmlFor="name" className="text-sm">Age</label>
                   <br />
                   <Autocomplete
-                    value={value}
+                    value={valueAge}
                     onChange={(event: any, newValue: string | null) => {
-                      setValue(newValue);
+                      setValueAge(newValue);
                     }}
-                    inputValue={inputValue}
+                    inputValue={inputValueAge}
                     onInputChange={(event, newInputValue) => {
-                      setInputValue(newInputValue);
+                      setInputValueAge(newInputValue);
                     }}
                     id="controllable-states-demo"
-                    options={options}
+                    options={optionsAge}
                     sx={{
                       width: "120px",
                       height: "44px",
@@ -96,16 +105,16 @@ export default function Home() {
                       '&.focused': {
                         border: '1px solid #177ddc',
                         boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)',
-                        height: "44px"
+                        height: "54px"
                       },
                       '& input': {
-                        height: "44px",
+                        height: "54px",
                         boxSizing: 'border-box',
                         paddingTop: '0px',
-                        width: '120px'
+                        // width: '120px'
                       },
                       '& .MuiAutocomplete-inputRoot': {
-                        height: "44px",
+                        height: "54px",
                         boxSizing: 'border-box',
                         paddingTop: '0px',
                         width: '120px',
@@ -134,24 +143,22 @@ export default function Home() {
                     options={options}
                     sx={{
                       width: "120px",
-                      height: "44px",
+                      height: "54px",
                       "border": "1px solid '#CCCCCC'",
                       "padding": "1px",
                       "display": "flex",
                       "flexWrap": "wrap",
                       '&.focused': {
                         border: '1px solid #177ddc',
-                        boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)',
-                        height: "44px"
+                        boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)'
                       },
                       '& input': {
-                        height: "44px",
+                        height: "54px",
                         boxSizing: 'border-box',
-                        paddingTop: '0px',
-                        width: '120px'
+                        paddingTop: '0px'
                       },
                       '& .MuiAutocomplete-inputRoot': {
-                        height: "44px",
+                        height: "54px",
                         boxSizing: 'border-box',
                         paddingTop: '0px',
                         width: '120px',
@@ -166,46 +173,34 @@ export default function Home() {
                 <div>
                   <label htmlFor="name" className="text-[11px]">How did you hear about us?</label>
                   <br />
-                  <Autocomplete
-                    value={value}
-                    onChange={(event: any, newValue: string | null) => {
-                      setValue(newValue);
-                    }}
-                    inputValue={inputValue}
-                    onInputChange={(event, newInputValue) => {
-                      setInputValue(newInputValue);
-                    }}
-                    id="controllable-states-demo"
-                    options={options}
-                    sx={{
-                      width: "120px",
-                      height: "44px",
-                      "border": "1px solid '#CCCCCC'",
-                      "padding": "1px",
-                      "display": "flex",
-                      "flexWrap": "wrap",
-                      '&.focused': {
-                        border: '1px solid #177ddc',
-                        boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)',
-                        height: "44px"
-                      },
-                      '& input': {
-                        height: "44px",
-                        boxSizing: 'border-box',
-                        paddingTop: '0px',
-                        width: '120px'
-                      },
-                      '& .MuiAutocomplete-inputRoot': {
-                        height: "44px",
-                        boxSizing: 'border-box',
-                        paddingTop: '0px',
-                        width: '120px',
+                  <TextField
+                    id="outlined-basic"
+                    label=""
+                    variant="outlined"
+                    placeholder="Youtube"
+                    fullWidth
+                    type="text"
+                    inputProps={{
+                      style: {
+                        border: '1px solid #A2A2A2',
+                        fontSize: '14px',
                         borderRadius: '0px',
-                        color: "rgba(161, 161, 161, 1)"
+                        lineHeight: '24px',
+                        width: '100%',
+                        color: "#A2A2A2"
                       }
                     }}
-                    renderInput={(params) => <TextField {...params} />}
-                    className="mt-2"
+                    sx={{
+                      '& .MuiOutlinedInput-root': {
+                        '& fieldset': {
+                          border: '1px solid #A2A2A2',
+                          borderRadius: '0px',
+                        }
+                      },
+                      mt: "8px",
+                      fontSize: "14px"
+                    }}
+                    className="h-[44px] mt-2"
                   />
                 </div>
               </div>
