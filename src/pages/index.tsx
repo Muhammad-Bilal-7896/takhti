@@ -395,9 +395,9 @@ export default function Home() {
         <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
         <meta name="theme-color" content="#000000" />
       </Head>
-      <main className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className='order-2 md:order-1 flex justify-center'>
-          <div className='w-10/12 md:w-7/12 mt-[4.5rem]'>
+      <main className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+        <div className='order-2 md:order-1 lg:order-1 flex justify-center'>
+          <div className='w-10/12 md:w-7/12 lg:w-7/12 mt-[4.5rem]'>
             <div>
               <Image
                 src="/Images/logo.svg"
@@ -441,7 +441,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="mt-5 flex flex-col space-y-6 md:space-y-0 md:flex-row md:justify-between">
+              <div className="mt-5 flex flex-col space-y-6 md:space-y-0 lg:space-y-0 md:flex-row lg:flex-row md:justify-between lg:justify-between">
                 <div>
                   <label htmlFor="name" className="text-sm">Age</label>
                   <br />
@@ -634,11 +634,11 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="order-2 md:order-1 relative flex items-center justify-center min-h-screen">
+        <div className="order-2 md:order-1 lg:order-1 relative flex items-center justify-center min-h-screen">
           <div className="absolute inset-0">
             <Image
               src="/Images/space.png"
-              className="w-full h-screen md:h-full object-cover"
+              className="w-full h-screen md:h-full lg:h-full object-cover"
               alt="Education"
               width={720}
               height={1061}
@@ -647,11 +647,11 @@ export default function Home() {
 
           {/* Overlay Container */}
           <div className="absolute inset-0 flex justify-center">
-            <div className="bg-white bg-opacity-30 p-8 w-full md:max-w-[76.3%] md:min-w-[76.3%] min-h-[555px] max-h-[780px] md:max-h-[700px] mt-10 md:mt-[4.5rem] flex justify-center">
-              <div className='text-navy text-left w-full md:max-w-[78%] md:min-w-[78%] mt-[30px] md:mt-[60px]'>
+            <div className="bg-white bg-opacity-30 p-8 w-full md:max-w-[76.3%] lg:max-w-[76.3%] md:min-w-[76.3%] lg:min-w-[76.3%] min-h-[555px] max-h-[780px] md:max-h-[700px] lg:max-h-[700px] mt-10 md:mt-[4.5rem] lg:mt-[4.5rem] flex justify-center">
+              <div className='text-navy text-left w-full md:max-w-[78%] lg:max-w-[78%] md:min-w-[78%] lg:min-w-[78%] mt-[30px] md:mt-[60px] lg:mt-[60px]'>
                 <h5 className="text-[16px] font-unisans leading-[24px]">Empower Communities through</h5>
-                <h4 className="text-4xl md:text-5xl font-unisans leading-[64px]">Education with</h4>
-                <h2 className="text-[44px] md:text-[64px] font-extrabold leading-[58px] md:leading-[88px]">Takhti Online</h2>
+                <h4 className="text-4xl md:text-5xl lg:text-5xl font-unisans leading-[64px]">Education with</h4>
+                <h2 className="text-[44px] md:text-[64px] lg:text-[64px] font-extrabold leading-[58px] md:leading-[88px] lg:leading-[88px]">Takhti Online</h2>
                 <p className="mt-2 text-[17px] font-normal leading-7 tracking-wide font-['Proxima Nova'] text-black">Takhti Online, we are on a mission to transform lives by providing accessible and quality education to underserved communities. By volunteering with us, you will play a pivotal role in making a positive impact on countless lives. We invite individuals from all backgrounds and skill sets to come together and help us create a brighter future for those in need.</p>
               </div>
             </div>
