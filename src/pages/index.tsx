@@ -351,6 +351,8 @@ export default function Home() {
     };
   });
 
+  const [currentPage, setCurrentPage] = React.useState(1);
+
   const [value, setValue] = React.useState<string | null>(options[0]);
   const [inputValue, setInputValue] = React.useState('');
 
@@ -407,231 +409,315 @@ export default function Home() {
                 height={62.5}
               />
             </div>
-            <h1 className="text-2xl font-normal mt-[42px] ">Fill out the form below to join our team and start making a difference today!</h1>
-            <div className='mt-[32px]'>
-              <div className="mt-[18px]">
-                <CustomTextInput
-                  label="Name"
-                  placeholder="Your Full Name"
-                  type="text"
-                />
-              </div>
+            {(currentPage === 1) ? (
+              <>
+                <h1 className="text-2xl font-normal mt-[42px] ">Fill out the form below to join our team and start making a difference today!</h1>
+                <div className='mt-[32px]'>
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="Name"
+                      placeholder="Your Full Name"
+                      type="text"
+                    />
+                  </div>
 
-              <div className="mt-[18px]">
-                <CustomTextInput
-                  label="Email"
-                  placeholder="Your Email"
-                  type="email"
-                />
-              </div>
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="Email"
+                      placeholder="Your Email"
+                      type="email"
+                    />
+                  </div>
 
-              <div className="mt-[18px]">
-                <CustomTextInput
-                  label="Phone"
-                  placeholder="Your Phone Number"
-                  type="tel"
-                />
-              </div>
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="Phone"
+                      placeholder="Your Phone Number"
+                      type="tel"
+                    />
+                  </div>
 
-              <div className="mt-[18px]">
-                <CustomTextInput
-                  label="Message"
-                  placeholder="Your Message"
-                  type="text"
-                />
-              </div>
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="Message"
+                      placeholder="Your Message"
+                      type="text"
+                    />
+                  </div>
 
-              <div className="mt-5 flex flex-col space-y-6 md:space-y-0 lg:space-y-0 md:flex-row lg:flex-row md:justify-between lg:justify-between">
-                <div>
-                  <label htmlFor="name" className="text-sm">Age</label>
+                  <div className="mt-5 flex flex-col space-y-6 md:space-y-0 lg:space-y-0 md:flex-row lg:flex-row md:justify-between lg:justify-between">
+                    <div>
+                      <label htmlFor="name" className="text-sm">Age</label>
+                      <br />
+                      <Autocomplete
+                        value={valueAge}
+                        onChange={(event: any, newValue: string | null) => {
+                          setValueAge(newValue);
+                        }}
+                        inputValue={inputValueAge}
+                        onInputChange={(event, newInputValue) => {
+                          setInputValueAge(newInputValue);
+                        }}
+                        options={optionsAge}
+                        sx={{
+                          width: (windowSize[0] < 600) ? ("100%") : "120px",
+                          height: "44px",
+                          "border": "1px solid '#CCCCCC'",
+                          "padding": "1px",
+                          "display": "flex",
+                          "flexWrap": "wrap",
+                          '&.focused': {
+                            border: '1px solid #177ddc',
+                            boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)',
+                            height: "54px"
+                          },
+                          '& input': {
+                            height: "54px",
+                            boxSizing: 'border-box',
+                            paddingTop: '0px',
+                            // width: '120px'
+                          },
+                          '& .MuiAutocomplete-inputRoot': {
+                            height: "54px",
+                            boxSizing: 'border-box',
+                            paddingTop: '0px',
+                            width: (windowSize[0] < 600) ? ("100%") : "120px",
+                            borderRadius: '0px',
+                            color: "rgba(161, 161, 161, 1)"
+                          }
+                        }}
+                        renderInput={(params) => <TextField {...params} />}
+                        className="mt-2"
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="name" className="text-sm">Gender</label>
+                      <br />
+                      <Autocomplete
+                        value={value}
+                        onChange={(event: any, newValue: string | null) => {
+                          setValue(newValue);
+                        }}
+                        inputValue={inputValue}
+                        onInputChange={(event, newInputValue) => {
+                          setInputValue(newInputValue);
+                        }}
+                        options={options}
+                        sx={{
+                          width: (windowSize[0] < 600) ? ("100%") : "120px",
+                          height: "54px",
+                          "border": "1px solid '#CCCCCC'",
+                          "padding": "1px",
+                          "display": "flex",
+                          "flexWrap": "wrap",
+                          '&.focused': {
+                            border: '1px solid #177ddc',
+                            boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)'
+                          },
+                          '& input': {
+                            height: "54px",
+                            boxSizing: 'border-box',
+                            paddingTop: '0px'
+                          },
+                          '& .MuiAutocomplete-inputRoot': {
+                            height: "54px",
+                            boxSizing: 'border-box',
+                            paddingTop: '0px',
+                            width: (windowSize[0] < 600) ? ("100%") : "120px",
+                            borderRadius: '0px',
+                            color: "rgba(161, 161, 161, 1)"
+                          }
+                        }}
+                        renderInput={(params) => <TextField {...params} />}
+                        className="mt-2"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="name" className="text-[11px]">How did you hear about us?</label>
+                      <br />
+                      <TextField
+                        label=""
+                        variant="outlined"
+                        placeholder="Youtube"
+                        fullWidth
+                        type="text"
+                        inputProps={{
+                          style: {
+                            border: '1px solid #A2A2A2',
+                            fontSize: '14px',
+                            borderRadius: '0px',
+                            lineHeight: '24px',
+                            width: '100%',
+                            color: "#A2A2A2"
+                          }
+                        }}
+                        sx={{
+                          '& .MuiOutlinedInput-root': {
+                            '& fieldset': {
+                              border: '1px solid #A2A2A2',
+                              borderRadius: '0px',
+                            }
+                          },
+                          mt: "8px",
+                          fontSize: "14px"
+                        }}
+                        className="h-[44px] mt-2"
+                      />
+                    </div>
+                  </div>
+
                   <br />
-                  <Autocomplete
-                    value={valueAge}
-                    onChange={(event: any, newValue: string | null) => {
-                      setValueAge(newValue);
-                    }}
-                    inputValue={inputValueAge}
-                    onInputChange={(event, newInputValue) => {
-                      setInputValueAge(newInputValue);
-                    }}
-                    options={optionsAge}
-                    sx={{
-                      width: (windowSize[0] < 600) ? ("100%") : "120px",
-                      height: "44px",
-                      "border": "1px solid '#CCCCCC'",
-                      "padding": "1px",
-                      "display": "flex",
-                      "flexWrap": "wrap",
-                      '&.focused': {
-                        border: '1px solid #177ddc',
-                        boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)',
-                        height: "54px"
-                      },
-                      '& input': {
-                        height: "54px",
-                        boxSizing: 'border-box',
-                        paddingTop: '0px',
-                        // width: '120px'
-                      },
-                      '& .MuiAutocomplete-inputRoot': {
-                        height: "54px",
-                        boxSizing: 'border-box',
-                        paddingTop: '0px',
-                        width: (windowSize[0] < 600) ? ("100%") : "120px",
-                        borderRadius: '0px',
-                        color: "rgba(161, 161, 161, 1)"
-                      }
-                    }}
-                    renderInput={(params) => <TextField {...params} />}
-                    className="mt-2"
-                  />
-                </div>
 
-                <div>
-                  <label htmlFor="name" className="text-sm">Gender</label>
-                  <br />
-                  <Autocomplete
-                    value={value}
-                    onChange={(event: any, newValue: string | null) => {
-                      setValue(newValue);
-                    }}
-                    inputValue={inputValue}
-                    onInputChange={(event, newInputValue) => {
-                      setInputValue(newInputValue);
-                    }}
-                    options={options}
-                    sx={{
-                      width: (windowSize[0] < 600) ? ("100%") : "120px",
-                      height: "54px",
-                      "border": "1px solid '#CCCCCC'",
-                      "padding": "1px",
-                      "display": "flex",
-                      "flexWrap": "wrap",
-                      '&.focused': {
-                        border: '1px solid #177ddc',
-                        boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)'
-                      },
-                      '& input': {
+                  <div>
+                    <label htmlFor="name" className="text-sm">Which group are you interested in joining?</label>
+                    <br />
+                    <Autocomplete
+                      value={valueGroupJoin}
+                      onChange={(event: any, newValue: string | null) => {
+                        setValueGroupJoin(newValue);
+                      }}
+                      inputValue={inputValueGroupJoin}
+                      onInputChange={(event, newInputValue) => {
+                        setInputValueGroupJoin(newInputValue);
+                      }}
+                      options={optionsGroupJoin}
+                      fullWidth
+                      sx={{
+                        width: "100%",
                         height: "54px",
-                        boxSizing: 'border-box',
-                        paddingTop: '0px'
-                      },
-                      '& .MuiAutocomplete-inputRoot': {
-                        height: "54px",
-                        boxSizing: 'border-box',
-                        paddingTop: '0px',
-                        width: (windowSize[0] < 600) ? ("100%") : "120px",
-                        borderRadius: '0px',
-                        color: "rgba(161, 161, 161, 1)"
-                      }
-                    }}
-                    renderInput={(params) => <TextField {...params} />}
-                    className="mt-2"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="name" className="text-[11px]">How did you hear about us?</label>
-                  <br />
-                  <TextField
-                    label=""
-                    variant="outlined"
-                    placeholder="Youtube"
-                    fullWidth
-                    type="text"
-                    inputProps={{
-                      style: {
-                        border: '1px solid #A2A2A2',
-                        fontSize: '14px',
-                        borderRadius: '0px',
-                        lineHeight: '24px',
-                        width: '100%',
-                        color: "#A2A2A2"
-                      }
-                    }}
-                    sx={{
-                      '& .MuiOutlinedInput-root': {
-                        '& fieldset': {
-                          border: '1px solid #A2A2A2',
+                        "border": "1px solid '#CCCCCC'",
+                        "padding": "1px",
+                        "display": "flex",
+                        "flexWrap": "wrap",
+                        '&.focused': {
+                          border: '1px solid #177ddc',
+                          boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)'
+                        },
+                        '& input': {
+                          height: "54px",
+                          boxSizing: 'border-box',
+                          paddingTop: '0px'
+                        },
+                        '& .MuiAutocomplete-inputRoot': {
+                          height: "54px",
+                          boxSizing: 'border-box',
+                          paddingTop: '0px',
+                          width: '100%',
                           borderRadius: '0px',
+                          color: "rgba(161, 161, 161, 1)"
                         }
-                      },
-                      mt: "8px",
-                      fontSize: "14px"
+                      }}
+                      renderInput={(params) => <TextField {...params} />}
+                      className="mt-2"
+                    />
+                  </div>
+
+                  <Button
+                    variant="contained"
+                    className='mt-[32px] h-[48px]'
+                    onClick={() => setCurrentPage(2)}
+                    style={{
+                      "background": "#011640",
+                      "borderRadius": "5px",
+                      "width": "200px",
+                      "fontFamily": "'Poppins', sans-serif",
+                      "fontStyle": "normal",
+                      "fontWeight": "600",
+                      "fontSize": "16px",
+                      "lineHeight": "24px",
+                      "textAlign": "center",
+                      "color": "#ffffff"
                     }}
-                    className="h-[44px] mt-2"
-                  />
+                  >
+                    Next
+                  </Button>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
                 </div>
-              </div>
+              </>
+            ) : (currentPage === 2) && (
+              <>
+                <h1 className="text-5xl font-normal mt-[42px] ">Takhti Games</h1>
+                <div className='mt-[32px]'>
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="What type of video games are you interested in?"
+                      placeholder=""
+                      type="text"
+                    />
+                  </div>
 
-              <br />
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="Have you participated in any gaming tournaments before?"
+                      placeholder=""
+                      type="text"
+                    />
+                  </div>
 
-              <div>
-                <label htmlFor="name" className="text-sm">Which group are you interested in joining?</label>
-                <br />
-                <Autocomplete
-                  value={valueGroupJoin}
-                  onChange={(event: any, newValue: string | null) => {
-                    setValueGroupJoin(newValue);
-                  }}
-                  inputValue={inputValueGroupJoin}
-                  onInputChange={(event, newInputValue) => {
-                    setInputValueGroupJoin(newInputValue);
-                  }}
-                  options={optionsGroupJoin}
-                  fullWidth
-                  sx={{
-                    width: "100%",
-                    height: "54px",
-                    "border": "1px solid '#CCCCCC'",
-                    "padding": "1px",
-                    "display": "flex",
-                    "flexWrap": "wrap",
-                    '&.focused': {
-                      border: '1px solid #177ddc',
-                      boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)'
-                    },
-                    '& input': {
-                      height: "54px",
-                      boxSizing: 'border-box',
-                      paddingTop: '0px'
-                    },
-                    '& .MuiAutocomplete-inputRoot': {
-                      height: "54px",
-                      boxSizing: 'border-box',
-                      paddingTop: '0px',
-                      width: '100%',
-                      borderRadius: '0px',
-                      color: "rgba(161, 161, 161, 1)"
-                    }
-                  }}
-                  renderInput={(params) => <TextField {...params} />}
-                  className="mt-2"
-                />
-              </div>
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="Do you have any experience in game design or development?"
+                      placeholder=""
+                      type="text"
+                    />
+                  </div>
 
-              <Button
-                variant="contained"
-                className='mt-[32px] h-[48px]'
-                style={{
-                  "background": "#011640",
-                  "borderRadius": "5px",
-                  "width": "200px",
-                  "fontFamily": "'Poppins', sans-serif",
-                  "fontStyle": "normal",
-                  "fontWeight": "600",
-                  "fontSize": "16px",
-                  "lineHeight": "24px",
-                  "textAlign": "center",
-                  "color": "#ffffff"
-                }}
-              >
-                Next
-              </Button>
-              <br />
-              <br />
-              <br />
-              <br />
-            </div>
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="What is your favorite video game and why?"
+                      placeholder=""
+                      type="text"
+                    />
+                  </div>
+
+                  <div className="mt-[18px]">
+                    <CustomTextInput
+                      label="Social Activities:"
+                      placeholder=""
+                      type="text"
+                    />
+                  </div>
+
+                  <div className="mt-[18px] h-60">
+                    <CustomTextInput
+                      label="Other skils"
+                      placeholder=""
+                      type="text"
+                      multiline={true}
+                      rows={6}
+                    />
+                  </div>
+
+                  <Button
+                    variant="contained"
+                    className='mt-[32px] h-[48px]'
+                    onClick={() => alert("Submitted")}
+                    style={{
+                      "background": "#011640",
+                      "borderRadius": "5px",
+                      "width": "200px",
+                      "fontFamily": "'Poppins', sans-serif",
+                      "fontStyle": "normal",
+                      "fontWeight": "600",
+                      "fontSize": "16px",
+                      "lineHeight": "24px",
+                      "textAlign": "center",
+                      "color": "#ffffff"
+                    }}
+                  >
+                    Submit
+                  </Button>
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+                </div>
+              </>
+            )}
           </div>
         </div>
         <div className="order-2 md:order-1 lg:order-1 relative flex items-center justify-center min-h-screen">
