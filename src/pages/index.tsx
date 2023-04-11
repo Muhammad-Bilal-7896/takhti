@@ -15,10 +15,32 @@ export default function Home() {
   const [value, setValue] = React.useState<string | null>(options[0]);
   const [inputValue, setInputValue] = React.useState('');
 
-  const optionsAge: any = ['1','2'];
+  // For age dropdown
+  const optionsAge: any = ['1', '2'];
 
   const [valueAge, setValueAge] = React.useState<string | null>(optionsAge[0]);
   const [inputValueAge, setInputValueAge] = React.useState('1');
+
+  // For Group Join dropdown
+  const optionsGroupJoin: any = [
+    'Educational Activities',
+    'Fundraising Activities',
+    'Marketing Activities',
+    'Administrative Activities',
+    'Software Development',
+    'Graphic Design',
+    'Video Editing',
+    'Photography',
+    'Social Media',
+    'Translation',
+    'Research',
+    'Writing',
+    'Accounting',
+    'Other'
+  ];
+
+  const [valueGroupJoin, setValueGroupJoin] = React.useState<string | null>(optionsGroupJoin[0]);
+  const [inputValueGroupJoin, setInputValueGroupJoin] = React.useState('1');
 
   for (let i = 0; i < 50; i++) {
     optionsAge.push(`${i + 1}`);
@@ -206,6 +228,51 @@ export default function Home() {
               </div>
 
               <br />
+
+              <div>
+                <label htmlFor="name" className="text-sm">Which group are you interested in joining?</label>
+                <br />
+                <Autocomplete
+                  value={valueGroupJoin}
+                  onChange={(event: any, newValue: string | null) => {
+                    setValueGroupJoin(newValue);
+                  }}
+                  inputValue={inputValueGroupJoin}
+                  onInputChange={(event, newInputValue) => {
+                    setInputValueGroupJoin(newInputValue);
+                  }}
+                  id="controllable-states-demo"
+                  options={optionsGroupJoin}
+                  fullWidth
+                  sx={{
+                    width: "100%",
+                    height: "54px",
+                    "border": "1px solid '#CCCCCC'",
+                    "padding": "1px",
+                    "display": "flex",
+                    "flexWrap": "wrap",
+                    '&.focused': {
+                      border: '1px solid #177ddc',
+                      boxShadow: '0 0 0 2px rgba(24, 144, 255, 0.2)'
+                    },
+                    '& input': {
+                      height: "54px",
+                      boxSizing: 'border-box',
+                      paddingTop: '0px'
+                    },
+                    '& .MuiAutocomplete-inputRoot': {
+                      height: "54px",
+                      boxSizing: 'border-box',
+                      paddingTop: '0px',
+                      width: '100%',
+                      borderRadius: '0px',
+                      color: "rgba(161, 161, 161, 1)"
+                    }
+                  }}
+                  renderInput={(params) => <TextField {...params} />}
+                  className="mt-2"
+                />
+              </div>
 
               <Button
                 variant="contained"
