@@ -2,8 +2,6 @@
 
 Welcome to the frontend repository of Takhti Online, a platform aimed at transforming lives by providing accessible and quality education to underserved communities. This prototype is based on the design from the following Figma file, which can be viewed through an iframe embedded below:
 
-<iframe width="100%" height="480" src="https://www.figma.com/proto/mSAmXHAKtN0HIEPeeGkmA4/Takhti?node-id=202-1576&scaling=min-zoom&page-id=202%3A1576" allowfullscreen></iframe>
-
 <img src="ReadmePictures/Form.jpg" width="100%">
 
 ## Technologies Used
