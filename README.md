@@ -2,7 +2,9 @@
 
 Welcome to the frontend repository of Takhti Online, a platform aimed at transforming lives by providing accessible and quality education to underserved communities. This prototype is based on the design from the following Figma file, which can be viewed through an iframe embedded below:
 
-<iframe width="100%" height="480" src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Ffile%2FmSAmXHAKtN0HIEPeeGkmA4%2FTakhti%3Fnode-id%3D202-1576%26t%3DiIkXRbnMwlUlin9D-0" allowfullscreen></iframe>
+<iframe width="100%" height="480" src="https://www.figma.com/proto/mSAmXHAKtN0HIEPeeGkmA4/Takhti?node-id=202-1576&scaling=min-zoom&page-id=202%3A1576" allowfullscreen></iframe>
+
+<img src="ReadmePictures/Form.jpg" width="100%">
 
 ## Technologies Used
 This frontend prototype is developed using 
@@ -51,4 +53,4 @@ Navigate to [http://localhost:3000](http://localhost:3000) to view the productio
 We welcome contributions from individuals of all backgrounds and skill sets. If you're interested in volunteering your time and skills to help improve Takhti Online, please feel free to submit a pull request or open an issue on this repository.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE.txt) file for details.
