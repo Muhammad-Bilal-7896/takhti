@@ -115,7 +115,6 @@ export default function Home() {
                     onInputChange={(event, newInputValue) => {
                       setInputValueAge(newInputValue);
                     }}
-                    id="controllable-states-demo"
                     options={optionsAge}
                     sx={{
                       width: "120px",
@@ -161,7 +160,6 @@ export default function Home() {
                     onInputChange={(event, newInputValue) => {
                       setInputValue(newInputValue);
                     }}
-                    id="controllable-states-demo"
                     options={options}
                     sx={{
                       width: "120px",
@@ -196,7 +194,6 @@ export default function Home() {
                   <label htmlFor="name" className="text-[11px]">How did you hear about us?</label>
                   <br />
                   <TextField
-                    id="outlined-basic"
                     label=""
                     variant="outlined"
                     placeholder="Youtube"
@@ -241,7 +238,6 @@ export default function Home() {
                   onInputChange={(event, newInputValue) => {
                     setInputValueGroupJoin(newInputValue);
                   }}
-                  id="controllable-states-demo"
                   options={optionsGroupJoin}
                   fullWidth
                   sx={{
