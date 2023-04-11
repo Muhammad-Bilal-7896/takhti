@@ -638,7 +638,7 @@ export default function Home() {
           <div className="absolute inset-0">
             <Image
               src="/Images/space.png"
-              className="w-full h-full md:h-full object-cover"
+              className="w-full h-screen md:h-full object-cover"
               alt="Education"
               width={720}
               height={1061}
@@ -647,11 +647,11 @@ export default function Home() {
 
           {/* Overlay Container */}
           <div className="absolute inset-0 flex justify-center">
-            <div className="bg-white bg-opacity-30 p-8 w-full md:max-w-[76.3%] md:min-w-[76.3%] min-h-[555px] max-h-[700px] md:max-h-[700px] mt-40 md:mt-[4.5rem] flex justify-center">
-              <div className='text-navy text-left w-full md:max-w-[78%] md:min-w-[78%] mt-[60px]'>
+            <div className="bg-white bg-opacity-30 p-8 w-full md:max-w-[76.3%] md:min-w-[76.3%] min-h-[555px] max-h-[780px] md:max-h-[700px] mt-10 md:mt-[4.5rem] flex justify-center">
+              <div className='text-navy text-left w-full md:max-w-[78%] md:min-w-[78%] mt-[30px] md:mt-[60px]'>
                 <h5 className="text-[16px] font-unisans leading-[24px]">Empower Communities through</h5>
-                <h4 className="text-5xl font-unisans leading-[64px]">Education with</h4>
-                <h2 className="text-[64px] font-extrabold leading-[88px]">Takhti Online</h2>
+                <h4 className="text-4xl md:text-5xl font-unisans leading-[64px]">Education with</h4>
+                <h2 className="text-[44px] md:text-[64px] font-extrabold leading-[58px] md:leading-[88px]">Takhti Online</h2>
                 <p className="mt-2 text-[17px] font-normal leading-7 tracking-wide font-['Proxima Nova'] text-black">Takhti Online, we are on a mission to transform lives by providing accessible and quality education to underserved communities. By volunteering with us, you will play a pivotal role in making a positive impact on countless lives. We invite individuals from all backgrounds and skill sets to come together and help us create a brighter future for those in need.</p>
               </div>
             </div>
