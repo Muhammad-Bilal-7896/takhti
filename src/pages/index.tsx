@@ -333,6 +333,24 @@ import {
 const options = ['Male', 'Female'];
 
 export default function Home() {
+
+  const [windowSize, setWindowSize] = React.useState([
+    (typeof window !== 'undefined') ? window.innerWidth : 0,
+    (typeof window !== 'undefined') ? window.innerHeight : 0
+  ]);
+
+  React.useEffect(() => {
+    const handleWindowResize = () => {
+      setWindowSize([window.innerWidth, window.innerHeight]);
+    };
+
+    window.addEventListener('resize', handleWindowResize);
+
+    return () => {
+      window.removeEventListener('resize', handleWindowResize);
+    };
+  });
+
   const [value, setValue] = React.useState<string | null>(options[0]);
   const [inputValue, setInputValue] = React.useState('');
 
@@ -378,8 +396,8 @@ export default function Home() {
         <meta name="theme-color" content="#000000" />
       </Head>
       <main className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className='flex justify-center'>
-          <div className='w-7/12 mt-[4.5rem]'>
+        <div className='order-2 md:order-1 flex justify-center'>
+          <div className='w-10/12 md:w-7/12 mt-[4.5rem]'>
             <div>
               <Image
                 src="/Images/logo.svg"
@@ -423,7 +441,7 @@ export default function Home() {
                 />
               </div>
 
-              <div className="mt-5 flex flex-row justify-between">
+              <div className="mt-5 flex flex-col space-y-6 md:space-y-0 md:flex-row md:justify-between">
                 <div>
                   <label htmlFor="name" className="text-sm">Age</label>
                   <br />
@@ -438,7 +456,7 @@ export default function Home() {
                     }}
                     options={optionsAge}
                     sx={{
-                      width: "120px",
+                      width: (windowSize[0] < 600) ? ("100%") : "120px",
                       height: "44px",
                       "border": "1px solid '#CCCCCC'",
                       "padding": "1px",
@@ -459,7 +477,7 @@ export default function Home() {
                         height: "54px",
                         boxSizing: 'border-box',
                         paddingTop: '0px',
-                        width: '120px',
+                        width: (windowSize[0] < 600) ? ("100%") : "120px",
                         borderRadius: '0px',
                         color: "rgba(161, 161, 161, 1)"
                       }
@@ -483,7 +501,7 @@ export default function Home() {
                     }}
                     options={options}
                     sx={{
-                      width: "120px",
+                      width: (windowSize[0] < 600) ? ("100%") : "120px",
                       height: "54px",
                       "border": "1px solid '#CCCCCC'",
                       "padding": "1px",
@@ -502,7 +520,7 @@ export default function Home() {
                         height: "54px",
                         boxSizing: 'border-box',
                         paddingTop: '0px',
-                        width: '120px',
+                        width: (windowSize[0] < 600) ? ("100%") : "120px",
                         borderRadius: '0px',
                         color: "rgba(161, 161, 161, 1)"
                       }
@@ -609,15 +627,18 @@ export default function Home() {
               >
                 Next
               </Button>
-
+              <br />
+              <br />
+              <br />
+              <br />
             </div>
           </div>
         </div>
-        <div className="relative flex items-center justify-center min-h-screen">
+        <div className="order-2 md:order-1 relative flex items-center justify-center min-h-screen">
           <div className="absolute inset-0">
             <Image
               src="/Images/space.png"
-              className="w-full"
+              className="w-full h-full md:h-full object-cover"
               alt="Education"
               width={720}
               height={1061}
@@ -626,7 +647,7 @@ export default function Home() {
 
           {/* Overlay Container */}
           <div className="absolute inset-0 flex justify-center">
-            <div className="bg-white bg-opacity-30 p-8 w-full md:max-w-[76.3%] md:min-w-[76.3%] min-h-[500px] md:max-h-[555px] mt-[4.5rem] flex justify-center">
+            <div className="bg-white bg-opacity-30 p-8 w-full md:max-w-[76.3%] md:min-w-[76.3%] min-h-[555px] max-h-[700px] md:max-h-[700px] mt-40 md:mt-[4.5rem] flex justify-center">
               <div className='text-navy text-left w-full md:max-w-[78%] md:min-w-[78%] mt-[60px]'>
                 <h5 className="text-[16px] font-unisans leading-[24px]">Empower Communities through</h5>
                 <h4 className="text-5xl font-unisans leading-[64px]">Education with</h4>
